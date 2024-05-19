@@ -645,8 +645,32 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
 #ifdef PRIMAL_REVERSION
                         if (CanUndergoPrimalReversion(sp, client_no)) {
-                            BattleFormChange(client_no, 1, bw, sp, TRUE);
-                            sp->battlemon[client_no].form_no = 1;
+                            BattleFormChange(client_no, + 1, bw, sp, TRUE);
+                            sp->battlemon[client_no].form_no = + 1;
+                            sp->client_work = client_no;
+                            scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                        if (CanKyuremPrimalReversion(sp, client_no)) {
+                            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                            sp->battlemon[sp->client_work].form_no += 3;
+                            sp->client_work = client_no;
+                            scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                        if (CanKyuremwPrimalReversion(sp, client_no)) {
+                            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                            sp->battlemon[sp->client_work].form_no += 3;
+                            sp->client_work = client_no;
+                            scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                        if (CanKyurembPrimalReversion(sp, client_no)) {
+                            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                            sp->battlemon[sp->client_work].form_no += 3;
                             sp->client_work = client_no;
                             scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -794,6 +818,24 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
 
                 if (i == client_set_max)
+                         (sp->battlemon[client_no].species == SPECIES_KYUREM
+#ifdef DEBUG_PRIMAL_REVERSION
+                          && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
+#else
+                          && GetBattleMonItem(sp, client_no) == ITEM_VENUSAURITE
+#endif
+                          )) &&
+                        sp->battlemon[client_no].hp != 0 && sp->battlemon[client_no].form_no == 0) {
+                        BattleFormChange(client_no, + 3, bw, sp, TRUE);
+                        sp->battlemon[client_no].form_no = 1;
+                        sp->client_work = client_no;
+                        scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
+                }
+
+                if (i == client_set_max)
 #endif  // PRIMAL_REVERSION
                 {
                     sp->switch_in_check_seq_no++;
@@ -864,6 +906,15 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     scriptnum = SUB_SEQ_SNOW_WARNING;
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     newBS.weather = WEATHER_HAIL_PERMANENT;
+                                }
+                                break;
+                            case ABILITY_ORICHALCUM_PULSE:
+                                sp->battlemon[client_no].appear_check_flag = 1;
+                                if ((sp->field_condition & WEATHER_SUNNY_PERMANENT) == 0)
+                                {
+                                    scriptnum = SUB_SEQ_DROUGHT;
+                                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                    newBS.weather = WEATHER_SUNNY_PERMANENT;
                                 }
                                 break;
                         }
@@ -1459,6 +1510,10 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 break;
                             case ABILITY_PSYCHIC_SURGE:
                                 sp->current_move_index = MOVE_PSYCHIC_TERRAIN;  // force move anim to play
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                break;
+                            case ABILITY_HADRON_ENGINE:
+                                sp->current_move_index = MOVE_ELECTRIC_TERRAIN;  // force move anim to play
                                 ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                 break;
 

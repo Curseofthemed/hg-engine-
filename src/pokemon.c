@@ -18,7 +18,7 @@
 #include "../include/constants/weather_numbers.h"
 
 
-#define NELEMS_POKEFORMDATATBL 285
+#define NELEMS_POKEFORMDATATBL 309
 
 extern u32 word_to_store_form_at;
 
@@ -587,7 +587,48 @@ u32 LONG_CALL GetGenesectForme(u16 item)
     }
     return 0;
 }
-
+u32 LONG_CALL Getzacianform(u16 item)
+{
+    switch (item)
+    {
+        case ITEM_RUSTED_SWORD: return 1;
+    }
+    return 0;
+}
+u32 LONG_CALL Getzamazentaform(u16 item)
+{
+    switch (item)
+    {
+        case ITEM_RUSTED_SHIELD: return 1;
+    }
+    return 0;
+}
+u32 LONG_CALL Getogerponform(u16 item)
+{
+    switch (item)
+    {
+        case ITEM_PIDGEOTITE: return 1;
+        case ITEM_ALAKAZITE: return 2;
+        case ITEM_SLOWBRONITE: return 3;
+    }
+    return 0;
+}
+u32 LONG_CALL Getpalkiaform(u16 item)
+{
+    switch (item)
+    {
+        case ITEM_LUSTROUS_GLOBE: return 1;
+    }
+    return 0;
+}
+u32 LONG_CALL Getdialgaform(u16 item)
+{
+    switch (item)
+    {
+        case ITEM_ADAMANT_CRYSTAL: return 1;
+    }
+    return 0;
+}
 /**
  *  @brief handle form change for arceus and genesect in the box when changing held item
  *
@@ -611,6 +652,37 @@ void LONG_CALL ArceusBoxPokemonFormeChange(struct BoxPokemon *bp)
     if (species == SPECIES_GENESECT)
     {
         form = GetGenesectForme(item);
+        SetBoxMonData(bp, MON_DATA_FORM, &form);
+    }
+    if (species == SPECIES_ZACIAN)
+    {
+        form = Getzacianform(item);
+        SetBoxMonData(bp, MON_DATA_FORM, &form);
+    }
+
+    if (species == SPECIES_ZAMAZENTA)
+    {
+        form = Getzamazentaform(item);
+        SetBoxMonData(bp, MON_DATA_FORM, &form);
+    }
+    if (species == SPECIES_ZACIAN)
+    {
+        form = Getzacianform(item);
+        SetBoxMonData(bp, MON_DATA_FORM, &form);
+    }
+    if (species == SPECIES_OGERPON)
+    {
+        form = Getogerponform(item);
+        SetBoxMonData(bp, MON_DATA_FORM, &form);
+    }
+    if (species == SPECIES_PALKIA)
+    {
+        form = Getpalkiaform(item);
+        SetBoxMonData(bp, MON_DATA_FORM, &form);
+    }
+    if (species == SPECIES_DIALGA)
+    {
+        form = Getdialgaform(item);
         SetBoxMonData(bp, MON_DATA_FORM, &form);
     }
 }
@@ -665,6 +737,78 @@ BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp)
     return FALSE;
 }
 
+/**
+ *  @brief check if a prison bottle can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check prison bottle against
+ *  @return TRUE if prison bottle can be used; FALSE otherwise
+ */
+BOOL LONG_CALL CanUseprisonb(struct PartyPokemon *pp)
+{
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+
+    if (species == SPECIES_HOOPA)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+/**
+ *  @brief check if a prison bottle can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check prison bottle against
+ *  @return TRUE if prison bottle can be used; FALSE otherwise
+ */
+BOOL LONG_CALL CanUsedarks(struct PartyPokemon *pp)
+{
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+
+    if (species == SPECIES_KYUREM)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+
+#define NECROZMA_MASK (0x80)
+#define JUST_NECROZMA_POS_MASK (0x7F)
+
+/**
+ *  @brief check if DNA splicers can be used, return position in party if so
+ *
+ *  @param pp PartyPokemon to check for
+ *  @param party Party to search through for matching DNA splicers pokémon
+ *  @return party position of pokémon that can be stored by the DNA splicers or'd with NECROZMA_MASK if reshiram is the first pokémon found
+ */
+u32 LONG_CALL CanUsesolarizer(struct PartyPokemon *pp, struct Party *party)
+{
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u32 form_no = GetMonData(pp, MON_DATA_FORM, NULL);
+
+    if (species != SPECIES_NECROZMA) // return invalid party slot if species isn't kyurem
+    {
+        return 6;
+    }
+
+    for (s32 i = 0; i < ((form_no != 0) ? 6 : party->count); i++) // check all 6 party slots if looking to revert
+    {
+        struct PartyPokemon *currentmon = Party_GetMonByIndex(party, i);
+        u32 species2 = GetMonData(currentmon, MON_DATA_SPECIES, NULL);
+
+        if (species2 == 0 && form_no != 0) // looking for empty slot to dump reshiram to from save
+        {
+            return i;
+        }
+        else if ((species2 == SPECIES_SOLGALEO || species2 == SPECIES_LUNALA) && form_no == 0) // looking for a reshiram to store to the save
+        {
+            return ((species2 == SPECIES_SOLGALEO ? NECROZMA_MASK : 0) | i);
+        }
+    }
+    return 6;
+}
+
 #define RESHIRAM_MASK (0x80)
 #define JUST_SPLICER_POS_MASK (0x7F)
 
@@ -701,6 +845,7 @@ u32 LONG_CALL CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Pa
     }
     return 6;
 }
+
 
 
 u32 CanUseAbilityCapsule(struct PartyPokemon *pp)
@@ -783,13 +928,53 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
     if (wk->dat->item == ITEM_REVEAL_GLASS
      && CanUseRevealGlass(pp) == TRUE)
     {
-        if (GetMonData(pp, MON_DATA_FORM, NULL) == 1)
+       if (GetMonData(pp, MON_DATA_FORM, NULL) == 1)
             wk->dat->after_mons = 0; // change to incarnate forme
         else
             wk->dat->after_mons = 1; // change to therian forme
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
         ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works alright
+        return TRUE;
+    }
+
+    if (wk->dat->item == ITEM_PRISON_BOTTLE
+     && CanUseprisonb(pp) == TRUE)
+    {
+        u32 currForm = GetMonData(pp, MON_DATA_FORM, NULL);
+        if (GetMonData(pp, MON_DATA_FORM, NULL) == 1)
+           {wk->dat->after_mons = 0; // change to incarnate forme    
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        ChangePartyPokemonToForm(pp, 0);
+        SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_HYPERSPACE_FURY : MOVE_HYPERSPACE_HOLE, MOVE_HYPERSPACE_HOLE);}
+        else
+            {wk->dat->after_mons = 1; // change to therian forme
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        ChangePartyPokemonToForm(pp, wk->dat->after_mons);
+        SwapPartyPokemonMove(pp, MOVE_HYPERSPACE_HOLE, wk->dat->after_mons == 1 ? MOVE_HYPERSPACE_HOLE : MOVE_HYPERSPACE_HOLE);}
+        return TRUE;
+    }
+
+    if (wk->dat->item == ITEM_DARK_STONE
+     && CanUsedarks(pp) == TRUE)
+    {
+        u32 currForm = GetMonData(pp, MON_DATA_FORM, NULL);
+        if (GetMonData(pp, MON_DATA_FORM, NULL) == 2)
+           {wk->dat->after_mons = 0; // change to incarnate forme    
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        ChangePartyPokemonToForm(pp, 0);
+        SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK, MOVE_GLACIATE);
+        SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT, MOVE_SCARY_FACE);}
+        else
+            {wk->dat->after_mons = 2; // change to therian forme
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        ChangePartyPokemonToForm(pp, wk->dat->after_mons);
+        SwapPartyPokemonMove(pp, MOVE_GLACIATE, wk->dat->after_mons == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK);
+        SwapPartyPokemonMove(pp, MOVE_SCARY_FACE, wk->dat->after_mons == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT);}
         return TRUE;
     }
 
@@ -857,6 +1042,72 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
         return TRUE;
     }
 #endif
+
+#ifdef ALLOW_SAVE_CHANGES
+    // handle reshiram/zekrom and kyurem
+
+    u32 solarizer_pos = CanUsesolarizer(pp, wk->dat->pp);
+    u32 solgaleoBool = solarizer_pos & NECROZMA_MASK;
+    solarizer_pos &= JUST_NECROZMA_POS_MASK;
+
+    if (wk->dat->item == ITEM_N_SOLARIZER
+     && (solarizer_pos < 6))
+    {
+        void *saveData = SaveBlock2_get();
+        struct SAVE_MISC_DATA *saveMiscData = Sav2_Misc_get(saveData);
+
+        if (GetMonData(pp, MON_DATA_FORM, NULL) != 0 && saveMiscData->isMonStored[STORED_MONS_N_SOLARIZER]) // revert forme and put reshiram back in party
+        {
+            u32 currForm = GetMonData(pp, MON_DATA_FORM, NULL);
+
+            // grab reshiram from save
+            // add reshiram to party--can't just use PokeParty_Add because icons freak out when you tell them to animate something that isn't there
+            //PokeParty_Add(wk->dat->pp, &saveMiscData->storedMons[STORED_MONS_N_SOLARIZER]);
+            struct PartyPokemon *solgaleo = Party_GetMonByIndex(wk->dat->pp, solarizer_pos);
+            *solgaleo = saveMiscData->storedMons[STORED_MONS_N_SOLARIZER];
+            partyMenuSignal = 1;
+
+            // delete reshiram from save--may just be able to leave the old data without having to deal with memset as long as we flag it as no mon there
+            memset((u8 *)&saveMiscData->storedMons[STORED_MONS_N_SOLARIZER], 0, sizeof(struct PartyPokemon));
+            saveMiscData->isMonStored[STORED_MONS_N_SOLARIZER] = 0;
+
+            wk->dat->after_mons = 0;
+
+            ChangePartyPokemonToForm(pp, 0);
+            SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK, MOVE_GLACIATE);
+            SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT, MOVE_SCARY_FACE);
+        }
+        else if (saveMiscData->isMonStored[STORED_MONS_N_SOLARIZER] == 0) // return nothing otherwise
+        {
+            // grab reshiram from party
+            // store reshiram in save
+            saveMiscData->storedMons[STORED_MONS_N_SOLARIZER] = *Party_GetMonByIndex(wk->dat->pp, solarizer_pos); // may have to directly memcpy this but this is good for the moment
+            // delete reshiram from party--solarizer_pos has the position to delete
+            PokeParty_Delete(wk->dat->pp, solarizer_pos);
+            saveMiscData->isMonStored[STORED_MONS_N_SOLARIZER] = 1;
+
+            if (solarizer_pos < wk->pos) // adjust this position back so that the right pokemon's forme gets changed
+            {
+                wk->pos--;
+                pp = Party_GetMonByIndex(wk->dat->pp, wk->pos);
+            }
+
+            if (solgaleoBool) // turn to white kyurem
+                wk->dat->after_mons = 1;
+            else              // turn to black kyurem
+                wk->dat->after_mons = 2;
+
+            ChangePartyPokemonToForm(pp, wk->dat->after_mons);
+            SwapPartyPokemonMove(pp, MOVE_GLACIATE, wk->dat->after_mons == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK);
+            SwapPartyPokemonMove(pp, MOVE_SCARY_FACE, wk->dat->after_mons == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT);
+        }
+        else { return FALSE; } // get out because no changes should be made
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        return TRUE;
+    }
+#endif
+
 
     // handle ability capsule
 
@@ -1541,6 +1792,8 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
                     work = form_no-7;
                 else if (species == SPECIES_ZYGARDE)
                     work = form_no-2;
+                else if (species == SPECIES_KYUREM)
+                    work = form_no-3;
 
                 SetMonData(pp, MON_DATA_FORM, &work);
                 ret = TRUE;
@@ -1672,19 +1925,19 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
 #define CRY_SPECIES_BASE_THUNDURUS (CRY_SPECIES_FORMS_BASE+1 + 48)
 #define CRY_SPECIES_BASE_LANDORUS (CRY_SPECIES_FORMS_BASE+2 + 48)
 #define CRY_SPECIES_BASE_KYUREM (CRY_SPECIES_FORMS_BASE+3 + 48)
-#define CRY_SPECIES_BASE_PUMPKABOO (CRY_SPECIES_FORMS_BASE+5 + 48)
-#define CRY_SPECIES_BASE_GOURGEIST (CRY_SPECIES_FORMS_BASE+6 + 48)
-#define CRY_SPECIES_BASE_HOOPA (CRY_SPECIES_FORMS_BASE+7 + 48)
-#define CRY_SPECIES_BASE_ORICORIO (CRY_SPECIES_FORMS_BASE+8 + 48)
-#define CRY_SPECIES_BASE_LYCANROC (CRY_SPECIES_FORMS_BASE+11 + 48)
-#define CRY_SPECIES_BASE_WISHIWASHI (CRY_SPECIES_FORMS_BASE+13 + 48)
-#define CRY_SPECIES_BASE_NECROZMA (CRY_SPECIES_FORMS_BASE+14 + 48)
-#define CRY_SPECIES_BASE_ZACIAN (CRY_SPECIES_FORMS_BASE+18 + 48)
-#define CRY_SPECIES_BASE_ZAMAZENTA (CRY_SPECIES_FORMS_BASE+19 + 48)
-#define CRY_SPECIES_BASE_URSHIFU (CRY_SPECIES_FORMS_BASE+20 + 48)
-#define CRY_SPECIES_BASE_CALYREX (CRY_SPECIES_FORMS_BASE+21 + 48)
-#define CRY_SPECIES_BASE_ENAMORUS (CRY_SPECIES_FORMS_BASE+23 + 48)
-#define CRY_SPECIES_BASE_MAUSHOLD (CRY_SPECIES_FORMS_BASE+24 + 48)
+#define CRY_SPECIES_BASE_PUMPKABOO (CRY_SPECIES_FORMS_BASE+8 + 48)
+#define CRY_SPECIES_BASE_GOURGEIST (CRY_SPECIES_FORMS_BASE+9 + 48)
+#define CRY_SPECIES_BASE_HOOPA (CRY_SPECIES_FORMS_BASE+10 + 48)
+#define CRY_SPECIES_BASE_ORICORIO (CRY_SPECIES_FORMS_BASE+11 + 48)
+#define CRY_SPECIES_BASE_LYCANROC (CRY_SPECIES_FORMS_BASE+14 + 48)
+#define CRY_SPECIES_BASE_WISHIWASHI (CRY_SPECIES_FORMS_BASE+16 + 48)
+#define CRY_SPECIES_BASE_NECROZMA (CRY_SPECIES_FORMS_BASE+17 + 48)
+#define CRY_SPECIES_BASE_ZACIAN (CRY_SPECIES_FORMS_BASE+21 + 48)
+#define CRY_SPECIES_BASE_ZAMAZENTA (CRY_SPECIES_FORMS_BASE+22 + 48)
+#define CRY_SPECIES_BASE_URSHIFU (CRY_SPECIES_FORMS_BASE+23 + 48)
+#define CRY_SPECIES_BASE_CALYREX (CRY_SPECIES_FORMS_BASE+25 + 48)
+#define CRY_SPECIES_BASE_ENAMORUS (CRY_SPECIES_FORMS_BASE+27 + 48)
+#define CRY_SPECIES_BASE_MAUSHOLD (CRY_SPECIES_FORMS_BASE+28 + 48)
 
 u32 storeShayminForm = 0;
 

@@ -19,6 +19,7 @@ TYPE_PSYCHIC          equ 14
 TYPE_ICE              equ 15
 TYPE_DRAGON           equ 16
 TYPE_DARK             equ 17
+TYPE_STELLAR          equ 18
 
 // body colors
 

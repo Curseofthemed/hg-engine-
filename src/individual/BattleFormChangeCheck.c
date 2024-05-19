@@ -300,6 +300,23 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             break;
         }
 
+        // handle meloetta - change to/from pirouette form when using relic song
+        if ((sp->battlemon[sp->client_work].species == SPECIES_ETERNATUS)
+         && (sp->battlemon[sp->client_work].hp)
+         && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
+         && (sp->current_move_index == MOVE_ETERNABEAM && sp->waza_no_old[sp->client_work] == MOVE_ETERNABEAM)
+         && (sp->battlemon[sp->client_work].form_no < 2)
+         && (sp->relic_song_tracker & No2Bit(sp->client_work)) // MoveCheckDamageNegatingAbilities triggers meloetta's form change if it can happen
+         && (sp->multi_hit_count <= 1))
+        {
+            sp->relic_song_tracker &= ~No2Bit(sp->client_work);
+            sp->battlemon[sp->client_work].form_no ^= 1;
+            BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 1);
+            *seq_no = SUB_SEQ_FORM_CHANGE;
+            ret = TRUE;
+            break;
+        }
+
         // handle genesect
         if ((sp->battlemon[sp->client_work].species == SPECIES_GENESECT)
          && (sp->battlemon[sp->client_work].hp))
@@ -316,6 +333,22 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
         // handle xerneas - force into active mode
         if ((sp->battlemon[sp->client_work].species == SPECIES_XERNEAS)
+         && (sp->battlemon[sp->client_work].hp))
+        {
+            form_no = 1;
+            if(sp->battlemon[sp->client_work].form_no != form_no)
+            {
+                struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->client_work, sp->sel_mons_no[sp->client_work]);
+                sp->battlemon[sp->client_work].form_no = form_no;
+                *seq_no = SUB_SEQ_FORM_CHANGE;
+                SetMonData(pp2, MON_DATA_FORM, &form_no);
+                ret = TRUE;
+                break;
+            }
+        }
+
+        // handle xerneas - force into active mode
+        if ((sp->battlemon[sp->client_work].species == SPECIES_TERAPAGOS)
          && (sp->battlemon[sp->client_work].hp))
         {
             form_no = 1;

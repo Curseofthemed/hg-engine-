@@ -2963,7 +2963,7 @@ BOOL CanKnockOffApply(struct BattleStruct *sp)
         // arceus plate on arceus can not be knocked off
         && !(species == SPECIES_ARCEUS && IS_ITEM_ARCEUS_PLATE(item))
         // griseous orb on giratina can not be knocked off
-        && !(species == SPECIES_GIRATINA && item == ITEM_GRISEOUS_ORB)
+        && !(species == SPECIES_GIRATINA && item == ITEM_GRISEOUS_CORE)
         // drives can not be knocked off of genesect
         && !(species == SPECIES_GENESECT && IS_ITEM_GENESECT_DRIVE(item))
         // silvally can not have its memory knocked off

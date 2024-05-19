@@ -1260,7 +1260,9 @@ const u16 UNUSED BaseExperienceTable[] =
     [SPECIES_EISCUE_NOICE_FACE           ] = 165,
     [SPECIES_MORPEKO_HANGRY              ] = 153,
     [SPECIES_ZACIAN_CROWNED              ] = 360,
+    [SPECIES_ZACIAN_BATTLE               ] = 360,
     [SPECIES_ZAMAZENTA_CROWNED           ] = 360,
+    [SPECIES_ZAMAZENTA_BATTLE            ] = 360,
     [SPECIES_ETERNATUS_ETERNAMAX         ] = 563,
     [SPECIES_URSHIFU_RAPID_STRIKE        ] = 275,
     [SPECIES_ZARUDE_DADA                 ] = 300,
@@ -1317,4 +1319,7 @@ const u16 UNUSED BaseExperienceTable[] =
     [SPECIES_OGERPON_CORNERSTONE_MASK    ] = 275,
     [SPECIES_TERAPAGOS_STELLAR           ] = 180, // TODO verify
     [SPECIES_URSALUNA_BLOODMOON          ] = 275,
+    [SPECIES_SHADOW_MEWTWO               ] = 340,
+    [SPECIES_MEGA_GOODRA                 ] = 300,
+    [SPECIES_MEGA_HAXORUS                ] = 270,
 };

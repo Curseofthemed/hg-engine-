@@ -102,6 +102,11 @@ const struct MegaStruct sMegaTable[] =
         .form = 2,
     }, // y
     {
+        .monindex = SPECIES_SHADOW_MEWTWO,
+        .itemindex = ITEM_MEWTWONITE_X,
+        .form = 1,
+    }, // x
+    {
         .monindex = SPECIES_AMPHAROS,
         .itemindex = ITEM_AMPHAROSITE,
         .form = 1,
@@ -261,6 +266,21 @@ const struct MegaStruct sMegaTable[] =
         .itemindex = ITEM_DIANCITE,
         .form = 1,
     },
+    {
+        .monindex = SPECIES_TERAPAGOS,
+        .itemindex = ITEM_VENUSAURITE,
+        .form = 2,
+    },
+    {
+        .monindex = SPECIES_VENUSAUR,
+        .itemindex = ITEM_CHARIZARDITE_X,
+        .form = 2,
+    },
+    {
+        .monindex = SPECIES_ENTEI,
+        .itemindex = ITEM_VENUSAURITE,
+        .form = 1,
+    },
 };
 
 const struct MegaStructMove sMegaMoveTable[] =
@@ -279,7 +299,6 @@ BOOL CheckCanMega(struct BattleStruct *battle, int client)
 {
     u16 mon = battle->battlemon[client].species;
     u16 item = battle->battlemon[client].item;
-    u32 form = battle->battlemon[client].form_no;
 
     if (battle->battlemon[client].canMega)
         return FALSE;
@@ -287,8 +306,6 @@ BOOL CheckCanMega(struct BattleStruct *battle, int client)
     if (newBS.SideMega[client])
         return FALSE;
 
-    if (form)
-        return FALSE;
 
     if (battle->playerActions[client][3] != SELECT_FIGHT_COMMAND)
         return FALSE;
@@ -328,6 +345,30 @@ BOOL CheckIsMega(struct BI_PARAM *bip)
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
 
     return IsMegaSpecies(mon, form_no) || IsMegaSpeciesByMove(mon, form_no);
+}
+
+BOOL CheckIsKYUREM(struct BI_PARAM *bip)
+{
+#ifdef PRIMAL_REVERSION
+    void *pp;
+    u16 form_no;
+    u16 mon;
+
+    if (IS_NOT_VALID_EWRAM_POINTER(&bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
+    {
+        return FALSE;
+    }
+
+    pp = BattleWorkPokemonParamGet(bip->bw, bip->client_no, bip->sel_mons_no);
+    mon = GetMonData(pp, MON_DATA_SPECIES, 0);
+    form_no = GetMonData(pp, MON_DATA_FORM, 0);
+    if (!form_no)
+        return FALSE;
+
+    return (mon == SPECIES_KYUREM);
+#else
+    return FALSE;
+#endif // PRIMAL_REVERSION
 }
 
 BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip)
@@ -443,11 +484,6 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     u16 form_no;
     u16 moves[4];
 
-    if (bip->client_no && newBS.playerWantMega) // if client number is not zero but the player has already queued up mega
-    {
-        return FALSE;
-    }
-
     if (IS_NOT_VALID_EWRAM_POINTER(&bip->bw->opponentData[bip->client_no])) // fix crash on hardware/melonDS
     {
         return FALSE;
@@ -458,9 +494,8 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     mon = GetMonData(pp, MON_DATA_SPECIES, NULL);
     for (int i = 0; i < 4; i++)
         moves[i] = GetMonData(pp, MON_DATA_MOVE1+i, NULL);
-
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
-    if (form_no) // can not draw mega button if form is nonzero.  only base form can mega evolve
+    if (form_no > 4) // can not draw mega button if form is nonzero.  only base form can mega evolve
         return FALSE;
 
     return (CheckMegaData(mon, item) || CheckMegaMoveData(mon, moves));

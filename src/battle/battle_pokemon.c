@@ -179,6 +179,7 @@ u8 TypeEffectivenessTable[][3] =
 
     { TYPE_DARK, TYPE_PSYCHIC, 0x14 },
     { TYPE_DARK, TYPE_DARK, 0x05 },
+    { TYPE_STELLAR, TYPE_STELLAR, 0x14 },
 
 // AI bugfix: move all of the immune type interactions to the end of the table so that the
 // immunities properly unset the super effective move effect flag (and a lanturn with thunderbolt

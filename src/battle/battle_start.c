@@ -247,6 +247,11 @@ enum
     SEQ_PROTEAN_CHECK,
     SEQ_STANCE_CHANGE_CHECK,
     SEQ_PARENTAL_BOND_CHECK,
+    SEQ_ZAMAZENTA,
+    SEQ_ZACIAN,
+    SEQ_NECROZMA_DUSK,
+    SEQ_NECROZMA_DAWN,
+    SEQ_ETERNATUS,
 };
 
 /**
@@ -452,6 +457,126 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
                     sp->battlemon[sp->client_work].form_no = 1;
                     BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+                    runMyScriptInstead = 1;
+                }
+            }
+            else
+            {
+                sp->wb_seq_no++;
+            }
+            FALLTHROUGH;
+        case SEQ_ZACIAN:
+            if (sp->battlemon[sp->attack_client].item == ITEM_RUSTED_SWORD && sp->battlemon[sp->attack_client].species == SPECIES_ZACIAN)
+            {
+                sp->client_work = sp->attack_client;
+                if (sp->current_move_index == MOVE_BEHEMOTH_BLADE && sp->battlemon[sp->attack_client].form_no == 1)
+                {
+                    sp->battlemon[sp->client_work].form_no = 2;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+                    runMyScriptInstead = 1;
+                }
+                else if (sp->moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 0)
+                {
+                    sp->battlemon[sp->client_work].form_no = 1;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+                    runMyScriptInstead = 1;
+                }
+            }
+            else
+            {
+                sp->wb_seq_no++;
+            }
+            FALLTHROUGH;
+        case SEQ_ZAMAZENTA:
+            if (sp->battlemon[sp->attack_client].item == ITEM_RUSTED_SHIELD && sp->battlemon[sp->attack_client].species == SPECIES_ZAMAZENTA)
+            {
+                sp->client_work = sp->attack_client;
+                if (sp->current_move_index == MOVE_BEHEMOTH_BASH && sp->battlemon[sp->attack_client].form_no == 1)
+                {
+                    sp->battlemon[sp->client_work].form_no = 2;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+                    runMyScriptInstead = 1;
+                }
+                else if (sp->moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 0)
+                {
+                    sp->battlemon[sp->client_work].form_no = 1;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+                    runMyScriptInstead = 1;
+                }
+            }
+            else
+            {
+                sp->wb_seq_no++;
+            }
+            FALLTHROUGH;
+        case SEQ_NECROZMA_DUSK:
+            if (sp->battlemon[sp->attack_client].item == ITEM_BLASTOISINITE && sp->battlemon[sp->attack_client].species == SPECIES_NECROZMA)
+            {
+                sp->client_work = sp->attack_client;
+                if (sp->current_move_index == MOVE_BEHEMOTH_BASH && sp->battlemon[sp->attack_client].form_no == 6)
+                {
+                    sp->battlemon[sp->client_work].form_no = 2;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+                    runMyScriptInstead = 1;
+                }
+                else if (sp->moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 1)
+                {
+                    sp->battlemon[sp->client_work].form_no = 3;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_MEGA_EVOLUTION );
+                    runMyScriptInstead = 1;
+                }
+            }
+            else
+            {
+                sp->wb_seq_no++;
+            }
+            FALLTHROUGH;
+            case SEQ_NECROZMA_DAWN:
+            if (sp->battlemon[sp->attack_client].item == ITEM_BLASTOISINITE && sp->battlemon[sp->attack_client].species == SPECIES_NECROZMA)
+            {
+                sp->client_work = sp->attack_client;
+                if (sp->current_move_index == MOVE_BEHEMOTH_BASH && sp->battlemon[sp->attack_client].form_no == 6)
+                {
+                    sp->battlemon[sp->client_work].form_no = 2;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+                    runMyScriptInstead = 1;
+                }
+                else if (sp->moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 2)
+                {
+                    sp->battlemon[sp->client_work].form_no = 4;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_MEGA_EVOLUTION );
+                    runMyScriptInstead = 1;
+                }
+            }
+            else
+            {
+                sp->wb_seq_no++;
+            }
+            FALLTHROUGH;
+            case SEQ_ETERNATUS:
+            if (sp->battlemon[sp->attack_client].species == SPECIES_ETERNATUS)
+            {
+                sp->client_work = sp->attack_client;
+                if (sp->current_move_index == MOVE_ETERNABEAM && sp->battlemon[sp->attack_client].form_no == 0)
+                {
+                    sp->battlemon[sp->client_work].form_no = 1;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+                    runMyScriptInstead = 1;
+                }
+                else if (sp->moveTbl[sp->current_move_index].power != 0 && sp->battlemon[sp->attack_client].form_no == 6)
+                {
+                    sp->battlemon[sp->client_work].form_no = 4;
+                    BattleFormChange(sp->client_work, sp->battlemon[sp->client_work].form_no, bw, sp, 0);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_MEGA_EVOLUTION );
                     runMyScriptInstead = 1;
                 }
             }

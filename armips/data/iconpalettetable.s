@@ -986,7 +986,7 @@ gIconPalTable:
 /* SPECIES_QUAXLY          */ .byte  0x0
 /* SPECIES_QUAXWELL        */ .byte  0x0
 /* SPECIES_QUAQUAVAL       */ .byte  0x0
-/* SPECIES_LECHONK         */ .byte  0x0
+/* SPECIES_LECHONK         */ .byte  0x1
 /* SPECIES_OINKOLOGNE      */ .byte  0x0
 /* SPECIES_TAROUNTULA      */ .byte  0x1
 /* SPECIES_SPIDOPS         */ .byte  0x1
@@ -1097,6 +1097,7 @@ gIconPalTable:
 /* SPECIES_IRON_CROWN      */ .byte  0x0
 /* SPECIES_TERAPAGOS       */ .byte  0x0
 /* SPECIES_PECHARUNT       */ .byte  0x0
+/* SPECIES_SHADOW_MEWTWO   */ .byte  0x0
 
 /* SPECIES_MEGA_VENUSAUR   */ .byte  0x1
 /* SPECIES_MEGA_CHARIZARD_X*/ .byte  0x0
@@ -1221,7 +1222,7 @@ gIconPalTable:
 /* SPECIES_THUNDURUS_THERIAN           */ .byte  0x0
 /* SPECIES_LANDORUS_THERIAN            */ .byte  0x0
 /* SPECIES_KYUREM_WHITE                */ .byte  0x0
-/* SPECIES_KYUREM_BLACK                */ .byte  0x2
+/* SPECIES_KYUREM_BLACK                */ .byte  0x0
 /* SPECIES_KELDEO_RESOLUTE             */ .byte  0x1
 /* SPECIES_MELOETTA_PIROUETTE          */ .byte  0x1
 /* SPECIES_GENESECT_DOUSE_DRIVE        */ .byte  0x2
@@ -1326,7 +1327,7 @@ gIconPalTable:
 /* SPECIES_ALCREMIE_FILLER_2           */ .byte  0x0
 /* SPECIES_EISCUE_NOICE_FACE           */ .byte  0x0
 /* SPECIES_MORPEKO_HANGRY              */ .byte  0x2
-/* SPECIES_ZACIAN_CROWNED              */ .byte  0x2
+/* SPECIES_ZACIAN_CROWNED              */ .byte  0x0
 /* SPECIES_ZAMAZENTA_CROWNED           */ .byte  0x2
 /* SPECIES_ETERNATUS_ETERNAMAX         */ .byte  0x0
 /* SPECIES_URSHIFU_RAPID_STRIKE        */ .byte  0x2
@@ -1384,7 +1385,31 @@ gIconPalTable:
 /* SPECIES_OGERPON_CORNERSTONE_MASK    */ .byte  0x0
 /* SPECIES_TERAPAGOS_STELLAR           */ .byte  0x0
 /* SPECIES_URSALUNA_BLOODMOON          */ .byte  0x2
-
+/* SPECIES_MEGA_ARCEUS                 */ .byte  0x1
+/* SPECIES_MEGA_PORYGON_Z              */ .byte  0x0
+/* SPECIES_MEGA_MUK                    */ .byte  0x2
+/* SPECIES_KYUREM_OG                   */ .byte  0x0
+/* SPECIES_MEGA_DARKRAI                */ .byte  0x0
+/* SPECIES_MEGA_RAPIDASH               */ .byte  0x0
+/* SPECIES_MEGA_RHYPERIOR              */ .byte  0x0
+/* SPECIES_MEGA_FLYGON                 */ .byte  0x1
+/* SPECIES_MEGA_SHADOW_MEWTWO          */ .byte  0x0
+/* SPECIES_MEGA_MEGANIUM               */ .byte  0x1
+/* SPECIES_MEGA_FERALIGATR             */ .byte  0x0
+/* SPECIES_MEGA_TYPHLOSION             */ .byte  0x1
+/* SPECIES_MEGA_SUICUNE                */ .byte  0x2
+/* SPECIES_MEGA_ENTEI                  */ .byte  0x2
+/* SPECIES_MEGA_RAIKOU                 */ .byte  0x2
+/* SPECIES_KORAIDON_BATTLE             */ .byte  0x0
+/* SPECIES_MIRAIDON_BATTLE             */ .byte  0x0
+/* SPECIES_ZACIAN_BATTLE               */ .byte  0x0
+/* SPECIES_ZAMAZENTA_BATTLE            */ .byte  0x2
+/* SPECIES_VENUSAUR_GMAX               */ .byte  0x0
+/* SPECIES_ETERNATUS_BATTLE            */ .byte  0x0
+/* SPECIES_KYUREM_OG_B                 */ .byte  0x0
+/* SPECIES_KYUREM_OG_W                 */ .byte  0x0
+/* SPECIES_MEGA_GOODRA                 */ .byte  0x2
+/* SPECIES_MEGA_HAXORUS                */ .byte  0x2
 .endarea
 
 .close

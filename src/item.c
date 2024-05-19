@@ -40,6 +40,17 @@ void ItemMenuUseFunc_HastyMint(struct ItemMenuUseData *data, const struct ItemCh
 void ItemMenuUseFunc_JollyMint(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
 void ItemMenuUseFunc_NaiveMint(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
 void ItemMenuUseFunc_SeriousMint(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
+void ItemMenuUseFunc_prisonb(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL ItemFieldUseFunc_prisonb(struct ItemFieldUseData *data);
+void *_Createprisonbwork(FieldSystem *fieldSystem);
+
+void ItemMenuUseFunc_SOLARIZER(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL ItemFieldUseFunc_SOLARIZER(struct ItemFieldUseData *data);
+void *_Createsolarwork(FieldSystem *fieldSystem);
+
+void ItemMenuUseFunc_darks(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
+BOOL ItemFieldUseFunc_darks(struct ItemFieldUseData *data);
+void *_Createdarkswork(FieldSystem *fieldSystem);
 
 const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
     { NULL, ItemFieldUseFunc_Generic, NULL },
@@ -97,6 +108,9 @@ const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
     { ItemMenuUseFunc_JollyMint, NULL, NULL },
     { ItemMenuUseFunc_NaiveMint, NULL, NULL },
     { ItemMenuUseFunc_SeriousMint, NULL, NULL },
+    { ItemMenuUseFunc_prisonb, ItemFieldUseFunc_prisonb, NULL },
+    { ItemMenuUseFunc_SOLARIZER, ItemFieldUseFunc_SOLARIZER, NULL },
+    { ItemMenuUseFunc_darks, ItemFieldUseFunc_darks, NULL },
 };
 
 u16 GetItemIndex(u16 item, u16 type)
@@ -216,11 +230,64 @@ void *_CreateRevealGlassWork(FieldSystem *fieldSystem)
     return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_REVEAL_GLASS);
 }
 
+
+
+
+
+
+
+void ItemMenuUseFunc_prisonb(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
+{
+    FieldSystem *fieldSystem = data->taskManager->fieldSystem; //TaskManager_GetFieldSystem(data->taskManager);
+    struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_PRISON_BOTTLE);
+    sub_0203C8F0(env, 0x0203CA9C | 1);
+}
+
+
+BOOL ItemFieldUseFunc_prisonb(struct ItemFieldUseData *data)
+{
+    RegisteredItem_CreateGoToAppTask(data, (FieldApplicationWorkCtor)_Createprisonbwork, FALSE);
+    return TRUE;
+}
+
+
+void *_Createprisonbwork(FieldSystem *fieldSystem)
+{
+    return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_PRISON_BOTTLE);
+}
+
+
+void ItemMenuUseFunc_darks(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
+{
+    FieldSystem *fieldSystem = data->taskManager->fieldSystem; //TaskManager_GetFieldSystem(data->taskManager);
+    struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_DARK_STONE);
+    sub_0203C8F0(env, 0x0203CA9C | 1);
+}
+
+
+BOOL ItemFieldUseFunc_darks(struct ItemFieldUseData *data)
+{
+    RegisteredItem_CreateGoToAppTask(data, (FieldApplicationWorkCtor)_Createdarkswork, FALSE);
+    return TRUE;
+}
+
+
+void *_Createdarkswork(FieldSystem *fieldSystem)
+{
+    return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_DARK_STONE);
+}
+
+
+
+
+
 void ItemMenuUseFunc_DNASplicers(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
 {
     FieldSystem *fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
     struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
-    env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_DNA_SPLICERS);
+    env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_N_SOLARIZER);
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
 
@@ -232,7 +299,26 @@ BOOL ItemFieldUseFunc_DNASplicers(struct ItemFieldUseData *data)
 
 void *_CreateDNASplicersWork(FieldSystem *fieldSystem)
 {
-    return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_DNA_SPLICERS);
+    return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_N_SOLARIZER);
+}
+
+void ItemMenuUseFunc_SOLARIZER(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
+{
+    FieldSystem *fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
+    struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_N_SOLARIZER);
+    sub_0203C8F0(env, 0x0203CA9C | 1);
+}
+
+BOOL ItemFieldUseFunc_SOLARIZER(struct ItemFieldUseData *data)
+{
+    RegisteredItem_CreateGoToAppTask(data, (FieldApplicationWorkCtor)_Createsolarwork, FALSE);
+    return TRUE;
+}
+
+void *_Createsolarwork(FieldSystem *fieldSystem)
+{
+    return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_N_SOLARIZER);
 }
 
 void ItemMenuUseFunc_AbilityCapsule(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)

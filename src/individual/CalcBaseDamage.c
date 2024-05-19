@@ -364,7 +364,24 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     {
         movepower = movepower * (100 + AttackingMon.item_power) / 100;
     }
-
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_OGERPON_MASK) &&
+        ((movetype == TYPE_BUG) || (movetype == TYPE_DARK) || (movetype == TYPE_DRAGON) || (movetype == TYPE_ELECTRIC) || (movetype == TYPE_FAIRY)|| (movetype == TYPE_FIGHTING) || (movetype == TYPE_FIRE) || (movetype == TYPE_FLYING) || (movetype == TYPE_GHOST) || (movetype == TYPE_GRASS) || (movetype == TYPE_GROUND) || (movetype == TYPE_ICE) || (movetype == TYPE_NORMAL) || (movetype == TYPE_POISON) || (movetype == TYPE_PSYCHIC) || (movetype == TYPE_STEEL) || (movetype == TYPE_WATER) || (movetype == TYPE_ROCK)) &&
+        (AttackingMon.species == SPECIES_OGERPON_WELLSPRING_MASK))
+    {
+        movepower = movepower * (100 + AttackingMon.item_power) / 100;
+    }
+        if ((AttackingMon.item_held_effect == HOLD_EFFECT_OGERPON_MASK_1) &&
+        ((movetype == TYPE_BUG) || (movetype == TYPE_DARK) || (movetype == TYPE_DRAGON) || (movetype == TYPE_ELECTRIC) || (movetype == TYPE_FAIRY)|| (movetype == TYPE_FIGHTING) || (movetype == TYPE_FIRE) || (movetype == TYPE_FLYING) || (movetype == TYPE_GHOST) || (movetype == TYPE_GRASS) || (movetype == TYPE_GROUND) || (movetype == TYPE_ICE) || (movetype == TYPE_NORMAL) || (movetype == TYPE_POISON) || (movetype == TYPE_PSYCHIC) || (movetype == TYPE_STEEL) || (movetype == TYPE_WATER) || (movetype == TYPE_ROCK)) &&
+        (AttackingMon.species == SPECIES_OGERPON_HEARTHFLAME_MASK))
+    {
+        movepower = movepower * (100 + AttackingMon.item_power) / 100;
+    }
+        if ((AttackingMon.item_held_effect == HOLD_EFFECT_OGERPON_MASK_2) &&
+        ((movetype == TYPE_BUG) || (movetype == TYPE_DARK) || (movetype == TYPE_DRAGON) || (movetype == TYPE_ELECTRIC) || (movetype == TYPE_FAIRY)|| (movetype == TYPE_FIGHTING) || (movetype == TYPE_FIRE) || (movetype == TYPE_FLYING) || (movetype == TYPE_GHOST) || (movetype == TYPE_GRASS) || (movetype == TYPE_GROUND) || (movetype == TYPE_ICE) || (movetype == TYPE_NORMAL) || (movetype == TYPE_POISON) || (movetype == TYPE_PSYCHIC) || (movetype == TYPE_STEEL) || (movetype == TYPE_WATER) || (movetype == TYPE_ROCK)) &&
+        (AttackingMon.species == SPECIES_OGERPON_CORNERSTONE_MASK))
+    {
+        movepower = movepower * (100 + AttackingMon.item_power) / 100;
+    }
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_GRISEOUS_ORB) &&
         ((movetype == TYPE_DRAGON) || (movetype == TYPE_GHOST)) &&
         ((BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATUS2, NULL) & STATUS2_TRANSFORMED) == 0) &&
@@ -372,7 +389,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     {
         movepower = movepower * (100 + AttackingMon.item_power) / 100;
     }
-
     // handle items that boost physical/special moves
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_BOOST_PHYSICAL) && (movesplit == SPLIT_PHYSICAL))
     {
@@ -745,6 +761,15 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         {
             sp_defense = sp_defense * 15 / 10;
         }
+        if ((field_cond & WEATHER_SUNNY_ANY) && (AttackingMon.ability == ABILITY_ORICHALCUM_PULSE))
+        {
+            attack = attack * 15 / 10;
+        }
+
+        if ((sp->terrainOverlay.type == ELECTRIC_TERRAIN) && (AttackingMon.ability == ABILITY_HADRON_ENGINE))
+        {
+            sp_attack = sp_attack * 15 / 10;
+        }
     }
 
     u16 equivalentAttack;
@@ -892,6 +917,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         damage /= 2;
     }
 
+    //handles Tera Shell
+    if ((DefendingMon.ability == ABILITY_TERA_SHELL) && (DefendingMon.hp == DefendingMon.maxhp))
+    {
+        damage /= 2;
+    }
     //handles shadow shield
     if ((DefendingMon.ability == ABILITY_SHADOW_SHIELD) && (DefendingMon.hp == DefendingMon.maxhp))
     {

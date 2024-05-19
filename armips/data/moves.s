@@ -13674,7 +13674,7 @@ movedata MOVE_TAKE_HEART, "Take Heart"
     movedescription MOVE_TAKE_HEART, "---"
 
 movedata MOVE_TERA_BLAST, "Tera Blast"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_RANDOM_TYPE_BASED_ON_IVS
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_NORMAL

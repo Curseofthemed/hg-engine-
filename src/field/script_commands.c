@@ -144,9 +144,9 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
     }
 
     u32 held_item = GetMonData(partyMon, MON_DATA_HELD_ITEM, NULL);
-    if (held_item == ITEM_GRISEOUS_ORB) {
+    if (held_item == ITEM_GRISEOUS_CORE) {
         BAG_DATA *bag = Sav2_Bag_get(fieldSystem->savedata);
-        if (!Bag_AddItem(bag, ITEM_GRISEOUS_ORB, 1, 11)) {
+        if (!Bag_AddItem(bag, ITEM_GRISEOUS_CORE, 1, 11)) {
             *ret_ptr = 0xFF;
             return FALSE;
         }

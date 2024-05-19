@@ -1087,8 +1087,9 @@ heightentry SPECIES_GOUGING_FIRE, 0, 0, 0, 0
 heightentry SPECIES_RAGING_BOLT, 3, 3, 0, 0
 heightentry SPECIES_IRON_BOULDER, 0, 0, 0, 0
 heightentry SPECIES_IRON_CROWN, 0, 0, 0, 0
-heightentry SPECIES_TERAPAGOS, 0, 0, 0, 0
+heightentry SPECIES_TERAPAGOS, 11, 11, 0, 0
 heightentry SPECIES_PECHARUNT, 0, 0, 0, 0
+heightentry SPECIES_SHADOW_MEWTWO, "null", 1, "null", 8
 
 heightentry SPECIES_MEGA_VENUSAUR, 3, 3, 0, 0
 heightentry SPECIES_MEGA_CHARIZARD_X, 3, 3, 0, 0
@@ -1138,6 +1139,24 @@ heightentry SPECIES_MEGA_ABOMASNOW, 3, 3, 0, 0
 heightentry SPECIES_MEGA_GALLADE, 3, 3, 0, 0
 heightentry SPECIES_MEGA_AUDINO, 3, 3, 0, 0
 heightentry SPECIES_MEGA_DIANCIE, 5, 5, 0, 0
+heightentry SPECIES_MEGA_ARCEUS, 0, 0, 0, 0
+heightentry SPECIES_MEGA_PORYGON_Z, 8, 8, 14, 14
+heightentry SPECIES_MEGA_MUK, 8, 8, 8, 8
+heightentry SPECIES_KYUREM_OG, 3, 3, 0, 0
+heightentry SPECIES_KYUREM_OG_B, 3, 3, 0, 0
+heightentry SPECIES_KYUREM_OG_W, 3, 3, 0, 0
+heightentry SPECIES_MEGA_DARKRAI, 0, 0, 10, 10
+heightentry SPECIES_MEGA_RAPIDASH, 0, 0, 3, 3
+heightentry SPECIES_MEGA_RHYPERIOR, 0, 0, 4, 4
+heightentry SPECIES_MEGA_FLYGON, 4, 4, 6, 6
+heightentry SPECIES_MEGA_SHADOW_MEWTWO, 1, 1, 8, 8
+heightentry SPECIES_MEGA_MEGANIUM, 2, 2, 2, 2
+heightentry SPECIES_MEGA_FERALIGATR, 3, 3, 4, 4
+heightentry SPECIES_MEGA_TYPHLOSION, 4, 4, 2, 2
+heightentry SPECIES_MEGA_SUICUNE, 0, 0, 6, 6
+heightentry SPECIES_MEGA_ENTEI, 13, 13, 5, 5
+heightentry SPECIES_MEGA_RAIKOU, 8, 8, 9, 9
+heightentry SPECIES_VENUSAUR_GMAX, 3, 3, 0, 0
 
 heightentry SPECIES_KYOGRE_PRIMAL, "null", 0, "null", 2
 heightentry SPECIES_GROUDON_PRIMAL, "null", 6, "null", 1
@@ -1320,7 +1339,9 @@ heightentry SPECIES_ALCREMIE_FILLER_2, 0, 0, 0, 0
 heightentry SPECIES_EISCUE_NOICE_FACE, 0, 0, 0, 0
 heightentry SPECIES_MORPEKO_HANGRY, 0, 0, 0, 0
 heightentry SPECIES_ZACIAN_CROWNED, 0, 0, 0, 0
+heightentry SPECIES_ZACIAN_BATTLE, 0, 0, 0, 0
 heightentry SPECIES_ZAMAZENTA_CROWNED, 0, 0, 0, 0
+heightentry SPECIES_ZAMAZENTA_BATTLE, 0, 0, 0, 0
 heightentry SPECIES_ETERNATUS_ETERNAMAX, 0, 0, 0, 0
 heightentry SPECIES_URSHIFU_RAPID_STRIKE, 3, 3, 0, 0
 heightentry SPECIES_ZARUDE_DADA, 0, 0, 0, 0
@@ -1378,3 +1399,6 @@ heightentry SPECIES_OGERPON_HEARTHFLAME_MASK, 0, 0, 0, 0
 heightentry SPECIES_OGERPON_CORNERSTONE_MASK, 0, 0, 0, 0
 heightentry SPECIES_TERAPAGOS_STELLAR, 0, 0, 0, 0
 heightentry SPECIES_URSALUNA_BLOODMOON, 3, 3, 0, 0
+heightentry SPECIES_ETERNATUS_BATTLE, 0, 0, 0, 0
+heightentry SPECIES_MEGA_GOODRA, 0, 0, 0, 0
+heightentry SPECIES_MEGA_HAXORUS, 0, 0, 0, 0

@@ -2713,6 +2713,30 @@ u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno);
  */
 BOOL LONG_CALL CanUndergoPrimalReversion(struct BattleStruct *sp, u8 client_no);
 
+/**
+ * @brief Check if client can undergo Primal Reversion
+ * @param sp move number
+ * @param client_no battler to check for primal reversion possibility
+ * @return `TRUE` if mon can undergo primal reversion, `FALSE` otherwise
+ */
+BOOL LONG_CALL CanKyuremPrimalReversion(struct BattleStruct *sp, u8 client_no);
+
+/**
+ * @brief Check if client can undergo Primal Reversion
+ * @param sp move number
+ * @param client_no battler to check for primal reversion possibility
+ * @return `TRUE` if mon can undergo primal reversion, `FALSE` otherwise
+ */
+BOOL LONG_CALL CanKyuremwPrimalReversion(struct BattleStruct *sp, u8 client_no);
+
+/**
+ * @brief Check if client can undergo Primal Reversion
+ * @param sp move number
+ * @param client_no battler to check for primal reversion possibility
+ * @return `TRUE` if mon can undergo primal reversion, `FALSE` otherwise
+ */
+BOOL LONG_CALL CanKyurembPrimalReversion(struct BattleStruct *sp, u8 client_no);
+
 // defined in mega.c
 BOOL LONG_CALL CheckMegaData(u32 mon, u32 item);
 

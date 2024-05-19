@@ -1517,10 +1517,51 @@ u32 LONG_CALL GetGenesectType(u16 item);
 u32 LONG_CALL GetGenesectForme(u16 item);
 
 /**
+ *  @brief get zacian form from held item
+ *
+ *  @param item held item
+ *  @return form from held item
+ */
+u32 LONG_CALL Getzacianform(u16 item);
+
+/**
+ *  @brief get zacian form from held item
+ *
+ *  @param item held item
+ *  @return form from held item
+ */
+u32 LONG_CALL Getzamazentaform(u16 item);
+
+/**
+ *  @brief get ogerpon form from held item
+ *
+ *  @param item held item
+ *  @return form from held item
+ */
+u32 LONG_CALL Getogerponform(u16 item);
+
+/**
+ *  @brief get palkia form from held item
+ *
+ *  @param item held item
+ *  @return form from held item
+ */
+u32 LONG_CALL Getpalkiaform(u16 item);
+
+/**
+ *  @brief get dialga form from held item
+ *
+ *  @param item held item
+ *  @return form from held item
+ */
+u32 LONG_CALL Getdialgaform(u16 item);
+
+/**
  *  @brief handle form change for arceus and genesect in the box when changing held item
  *
  *  @param bp struct BoxPokemon whose form to update
  */
+
 void LONG_CALL ArceusBoxPokemonFormeChange(struct BoxPokemon *bp);
 
 /**
@@ -1541,6 +1582,23 @@ BOOL LONG_CALL HandleBoxPokemonFormeChanges(struct BoxPokemon* bp);
 BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp);
 
 /**
+ *  @brief check if a light stone can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check light stone against
+ *  @return TRUE if light stone can be used; FALSE otherwise
+ */
+BOOL LONG_CALL CanUseprisonb(struct PartyPokemon *pp);
+
+/**
+ *  @brief check if a light stone can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check light stone against
+ *  @return TRUE if light stone can be used; FALSE otherwise
+ */
+BOOL LONG_CALL CanUsedarks(struct PartyPokemon *pp);
+
+
+/**
  *  @brief check if DNA splicers can be used, return position in party if so
  *
  *  @param pp PartyPokemon to check for
@@ -1548,6 +1606,15 @@ BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp);
  *  @return party position of pokémon that can be stored by the DNA splicers or'd with RESHIRAM_MASK if reshiram is the first pokémon found
  */
 u32 LONG_CALL CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Party *party);
+
+/**
+ *  @brief check if N Solarizer can be used, return position in party if so
+ *
+ *  @param pp PartyPokemon to check for
+ *  @param party Party to search through for matching N Solarizer pokémon
+ *  @return party position of pokémon that can be stored by the N Solarizer or'd with NECROZMA_MASK if reshiram is the first pokémon found
+ */
+u32 LONG_CALL CanUsesolarizer(struct PartyPokemon *pp, struct Party *party);
 
 /**
  *  @brief see if an item changes attributes of the pokémon or not

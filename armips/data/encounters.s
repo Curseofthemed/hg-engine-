@@ -122,14 +122,14 @@ superrodrate 0
 walklevels 2, 3, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4
 
 // morning encounter slots
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_SENTRET
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_SENTRET
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_SENTRET
-pokemon SPECIES_SENTRET
+pokemon SPECIES_ZAMAZENTA
+pokemon SPECIES_ZAMAZENTA
+pokemon SPECIES_ZAMAZENTA
+pokemon SPECIES_ZAMAZENTA
+pokemon SPECIES_ZAMAZENTA
+pokemon SPECIES_ZAMAZENTA
+pokemon SPECIES_ZAMAZENTA
+pokemon SPECIES_ZAMAZENTA
 pokemon SPECIES_RATTATA
 pokemon SPECIES_PIDGEY
 pokemon SPECIES_RATTATA
@@ -850,18 +850,18 @@ superrodrate 75
 walklevels 6, 4, 6, 4, 6, 6, 6, 6, 6, 4, 6, 4
 
 // morning encounter slots
-pokemon SPECIES_BELLSPROUT
-pokemon SPECIES_RATTATA
-pokemon SPECIES_BELLSPROUT
-pokemon SPECIES_RATTATA
-pokemon SPECIES_MAREEP
-pokemon SPECIES_MAREEP
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_OGERPON
+pokemon SPECIES_OGERPON
+pokemon SPECIES_OGERPON
+pokemon SPECIES_OGERPON
+pokemon SPECIES_OGERPON
+pokemon SPECIES_OGERPON
+pokemon SPECIES_OGERPON
+pokemon SPECIES_OGERPON
+pokemon SPECIES_OGERPON
+pokemon SPECIES_OGERPON
+pokemon SPECIES_OGERPON
+pokemon SPECIES_OGERPON
 
 // day encounter slots
 pokemon SPECIES_BELLSPROUT

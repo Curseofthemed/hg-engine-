@@ -95,6 +95,17 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         sp->relic_song_tracker |= No2Bit(attacker);
     }
 
+    // trigger meloetta's relic song form transformation if possible
+    if ((sp->battlemon[attacker].species == SPECIES_ETERNATUS)
+     && (sp->battlemon[attacker].hp)
+     && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
+     && (sp->battlemon[attacker].form_no < 2))
+    {
+        sp->relic_song_tracker |= No2Bit(attacker);
+    }
+
+
+
     movetype = GetAdjustedMoveType(sp, attacker, sp->current_move_index); // new normalize checks
 
     // 02252EF4
@@ -468,7 +479,7 @@ BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no)
         case ITEM_VENUSAURITE ... ITEM_DIANCITE:
         case ITEM_BLUE_ORB:
         case ITEM_RED_ORB:
-        case ITEM_GRISEOUS_ORB:
+        case ITEM_GRISEOUS_CORE:
         case ITEM_NONE:
             return FALSE;
         default:

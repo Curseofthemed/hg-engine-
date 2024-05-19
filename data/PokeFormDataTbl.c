@@ -99,6 +99,12 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .file = SPECIES_MEGA_MEWTWO_Y,
     },
     {
+        .species = SPECIES_SHADOW_MEWTWO,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_SHADOW_MEWTWO,
+    },
+    {
         .species = SPECIES_AMPHAROS,
         .form_no = 1,
         .need_rev = 1,
@@ -285,6 +291,12 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .file = SPECIES_MEGA_GALLADE,
     },
     {
+        .species = SPECIES_ARCEUS,
+        .form_no = 31,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_ARCEUS,
+    },
+    {     
         .species = SPECIES_AUDINO,
         .form_no = 1,
         .need_rev = 1,
@@ -295,6 +307,85 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .form_no = 1,
         .need_rev = 1,
         .file = SPECIES_MEGA_DIANCIE,
+    },
+    {
+        .species = SPECIES_PORYGON_Z,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_PORYGON_Z,
+    },
+    {
+        .species = SPECIES_MUK,
+        .form_no = 2,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_MUK,
+    },
+
+    {
+        .species = SPECIES_DARKRAI,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_DARKRAI,
+    },
+    {
+        .species = SPECIES_RAPIDASH,
+        .form_no = 2,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_RAPIDASH
+    },
+    {
+        .species = SPECIES_RHYPERIOR,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_RHYPERIOR
+    },
+    {
+        .species = SPECIES_FLYGON,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_FLYGON,
+    },
+    {
+        .species = SPECIES_MEGANIUM,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_MEGANIUM,
+    },
+    {
+        .species = SPECIES_FERALIGATR,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_FERALIGATR,
+    },
+    {
+        .species = SPECIES_TYPHLOSION,
+        .form_no = 2,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_TYPHLOSION
+    },
+    {
+        .species = SPECIES_ENTEI,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_ENTEI
+    },
+    {
+        .species = SPECIES_RAIKOU,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_RAIKOU
+    },
+    {
+        .species = SPECIES_SUICUNE,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_SUICUNE
+    },
+    {
+        .species = SPECIES_VENUSAUR,
+        .form_no = 2,
+        .need_rev = 1,
+        .file = SPECIES_VENUSAUR_GMAX
     },
 #endif // MEGA_EVOLUTIONS
 
@@ -743,6 +834,24 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .form_no = 1,
         .need_rev = 0,
         .file = SPECIES_GRENINJA_BATTLE_BOND,
+    },
+        {
+        .species = SPECIES_KYUREM,
+        .form_no = 3,
+        .need_rev = 1,
+        .file = SPECIES_KYUREM_OG,
+    },
+    {
+        .species = SPECIES_KYUREM,
+        .form_no = 4,
+        .need_rev = 1,
+        .file = SPECIES_KYUREM_OG_W,
+    },
+    {
+        .species = SPECIES_KYUREM,
+        .form_no = 5,
+        .need_rev = 1,
+        .file = SPECIES_KYUREM_OG_B,
     },
     {
         .species = SPECIES_VIVILLON,
@@ -1247,26 +1356,14 @@ const struct FormData UNUSED PokeFormDataTbl[]=
     {
         .species = SPECIES_ZYGARDE,
         .form_no = 2,
-        .need_rev = 0,
-        .file = SPECIES_ZYGARDE_10_POWER_CONSTRUCT,
+        .need_rev = 1,
+        .file = SPECIES_ZYGARDE_50_COMPLETE,
     },
     {
         .species = SPECIES_ZYGARDE,
         .form_no = 3,
-        .need_rev = 0,
-        .file = SPECIES_ZYGARDE_50_POWER_CONSTRUCT,
-    },
-    {
-        .species = SPECIES_ZYGARDE,
-        .form_no = 4,
         .need_rev = 1,
         .file = SPECIES_ZYGARDE_10_COMPLETE,
-    },
-    {
-        .species = SPECIES_ZYGARDE,
-        .form_no = 5,
-        .need_rev = 1,
-        .file = SPECIES_ZYGARDE_50_COMPLETE,
     },
     {
         .species = SPECIES_WISHIWASHI,
@@ -1409,18 +1506,30 @@ const struct FormData UNUSED PokeFormDataTbl[]=
     {
         .species = SPECIES_ZACIAN,
         .form_no = 1,
-        .need_rev = 1,
+        .need_rev = 0,
         .file = SPECIES_ZACIAN_CROWNED,
+    },
+    {
+        .species = SPECIES_ZACIAN,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_ZACIAN_BATTLE,
     },
     {
         .species = SPECIES_ZAMAZENTA,
         .form_no = 1,
-        .need_rev = 1,
+        .need_rev = 0,
         .file = SPECIES_ZAMAZENTA_CROWNED,
     },
     {
+        .species = SPECIES_ZAMAZENTA,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_ZAMAZENTA_BATTLE,
+    },
+    {
         .species = SPECIES_ETERNATUS,
-        .form_no = 1,
+        .form_no = 2,
         .need_rev = 1,
         .file = SPECIES_ETERNATUS_ETERNAMAX,
     },
@@ -1430,7 +1539,18 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .need_rev = 0,
         .file = SPECIES_ENAMORUS_THERIAN,
     },
-
+    {
+        .species = SPECIES_KORAIDON,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_KORAIDON_BATTLE,
+    },
+    {
+        .species = SPECIES_MIRAIDON,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MIRAIDON_BATTLE,
+    },
     /**hisuian forms**/
     {
         .species = SPECIES_GROWLITHE,
@@ -1629,13 +1749,13 @@ const struct FormData UNUSED PokeFormDataTbl[]=
     {
         .species = SPECIES_TERAPAGOS,
         .form_no = 1,
-        .need_rev = 0,
+        .need_rev = 1,
         .file = SPECIES_TERAPAGOS_TERASTAL,
     },
     {
         .species = SPECIES_TERAPAGOS,
         .form_no = 2,
-        .need_rev = 0,
+        .need_rev = 1,
         .file = SPECIES_TERAPAGOS_STELLAR,
     },
     {
@@ -1733,5 +1853,23 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .form_no = 1,
         .need_rev = 0,
         .file = SPECIES_URSALUNA_BLOODMOON,
+    },
+    {
+        .species = SPECIES_ETERNATUS,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_ETERNATUS_BATTLE,
+    },
+    {
+        .species = SPECIES_GOODRA,
+        .form_no = 2,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_GOODRA,
+    },
+    {
+        .species = SPECIES_HAXORUS,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_MEGA_HAXORUS,
     },
 };

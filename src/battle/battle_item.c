@@ -238,7 +238,7 @@ BOOL LONG_CALL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, i
  */
 BOOL CheckItemByThief(u16 item)
 {
-    if (item == ITEM_GRISEOUS_ORB || IS_ITEM_MEGA_STONE(item))
+    if (item == ITEM_GRISEOUS_CORE || IS_ITEM_MEGA_STONE(item))
         return TRUE;
     return FALSE;
 }

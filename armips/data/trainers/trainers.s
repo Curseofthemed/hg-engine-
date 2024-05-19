@@ -623,14 +623,14 @@ trainerdata 20, "Falkner"
     endentry
 
     party 20
-        // mon 0
+        //mon 0
         ivs 50
         abilityslot 0
-        level 9
-        pokemon SPECIES_PIDGEY
-        item ITEM_NONE
-        move MOVE_TACKLE
-        move MOVE_SAND_ATTACK
+        level 50
+        pokemon SPECIES_ETERNATUS
+        item ITEM_ROCK_MEMORY
+        move MOVE_ETERNABEAM
+        move MOVE_NONE
         move MOVE_NONE
         move MOVE_NONE
         ballseal 0
@@ -638,12 +638,12 @@ trainerdata 20, "Falkner"
         // mon 1
         ivs 50
         abilityslot 0
-        level 13
-        pokemon SPECIES_PIDGEOTTO
-        item ITEM_NONE
-        move MOVE_TACKLE
-        move MOVE_ROOST
-        move MOVE_GUST
+        level 50
+        pokemon SPECIES_ROARING_MOON
+        item ITEM_RUSTED_SHIELD
+        move MOVE_BEHEMOTH_BASH
+        move MOVE_SLASH
+        move MOVE_NONE
         move MOVE_NONE
         ballseal 0
     endparty
@@ -1642,7 +1642,7 @@ trainerdata 51, "Nico"
         ivs 0
         abilityslot 0
         level 3
-        pokemon SPECIES_BELLSPROUT
+        pokemon SPECIES_ZACIAN_CROWNED
         ballseal 0
 
         // mon 1

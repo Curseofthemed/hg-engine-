@@ -535,14 +535,14 @@ Lock Capsule
 Red Orb
 Blue Orb
 Enigma Stone
-Venusaurite
-Charizardite X
-Charizardite Y
-Blastoisite
-Beedrillite
-Pidgeotite
-Alakazite
-Slowbronite
+All Mega Stone
+Wishing Piece
+Tera Crystal 
+Ultranecrozium Z
+Grey Stone
+Wellspring Mask
+Hearthflame Mask
+Cornerstone Mask
 Gengarite
 Kangaskhite
 Pinsirite
