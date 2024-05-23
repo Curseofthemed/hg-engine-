@@ -349,7 +349,8 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 
         // handle xerneas - force into active mode
         if ((sp->battlemon[sp->client_work].species == SPECIES_TERAPAGOS)
-         && (sp->battlemon[sp->client_work].hp))
+         && (sp->battlemon[sp->client_work].hp)
+         && (sp->battlemon[sp->client_work].form_no == 0))
         {
             form_no = 1;
             if(sp->battlemon[sp->client_work].form_no != form_no)

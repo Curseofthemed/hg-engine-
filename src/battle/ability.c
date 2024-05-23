@@ -613,6 +613,31 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 }
             }
             break;
+        case ABILITY_PERFECTION:
+            if ((sp->defence_client == sp->fainting_client)
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+                && (sp->battlemon[sp->attack_client].hp)
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
+            {
+
+                if (sp->battlemon[sp->attack_client].states[STAT_SPATK] < 12)
+                {
+                    sp->addeffect_param = ADD_STATE_SP_ATK_UP;
+                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    seq_no[0] = SUB_SEQ_BOOST_STATS;
+                    ret = TRUE;
+                }
+                if (sp->battlemon[sp->attack_client].states[STAT_ATTACK] < 12)
+                {
+                    sp->addeffect_param = ADD_STATE_ATTACK_UP;
+                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    seq_no[0] = SUB_SEQ_BOOST_STATS;
+                    ret = TRUE;
+                }
+            }
+            break;
         case ABILITY_BATTLE_BOND:
             if ((sp->defence_client == sp->fainting_client)
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)

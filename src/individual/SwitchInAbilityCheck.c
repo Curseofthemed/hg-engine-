@@ -676,6 +676,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
                         }
+
 #endif  // PRIMAL_REVERSION
                     }
 
@@ -824,10 +825,40 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 #else
                           && GetBattleMonItem(sp, client_no) == ITEM_VENUSAURITE
 #endif
-                          )) &&
+                           &&
                         sp->battlemon[client_no].hp != 0 && sp->battlemon[client_no].form_no == 0) {
-                        BattleFormChange(client_no, + 3, bw, sp, TRUE);
-                        sp->battlemon[client_no].form_no = 1;
+                        BattleFormChange(client_no, 3, bw, sp, TRUE);
+                        sp->battlemon[client_no].form_no = 3;
+                        sp->client_work = client_no;
+                        scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                        ) ||
+                         (sp->battlemon[client_no].species == SPECIES_KYUREM
+#ifdef DEBUG_PRIMAL_REVERSION
+                          && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
+#else
+                          && GetBattleMonItem(sp, client_no) == ITEM_VENUSAURITE
+#endif
+                          )) &&
+                        sp->battlemon[client_no].hp != 0 && sp->battlemon[client_no].form_no == 1) {
+                        BattleFormChange(client_no, 4, bw, sp, TRUE);
+                        sp->battlemon[client_no].form_no = 4;
+                        sp->client_work = client_no;
+                        scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                        ) ||
+                         (sp->battlemon[client_no].species == SPECIES_KYUREM
+#ifdef DEBUG_PRIMAL_REVERSION
+                          && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
+#else
+                          && GetBattleMonItem(sp, client_no) == ITEM_VENUSAURITE
+#endif
+                          )) &&
+                        sp->battlemon[client_no].hp != 0 && sp->battlemon[client_no].form_no == 2) {
+                        BattleFormChange(client_no, 5, bw, sp, TRUE);
+                        sp->battlemon[client_no].form_no = 5;
                         sp->client_work = client_no;
                         scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;

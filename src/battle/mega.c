@@ -103,9 +103,9 @@ const struct MegaStruct sMegaTable[] =
     }, // y
     {
         .monindex = SPECIES_SHADOW_MEWTWO,
-        .itemindex = ITEM_MEWTWONITE_X,
+        .itemindex = ITEM_VENUSAURITE,
         .form = 1,
-    }, // x
+    },
     {
         .monindex = SPECIES_AMPHAROS,
         .itemindex = ITEM_AMPHAROSITE,

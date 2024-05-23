@@ -629,7 +629,7 @@ trainerdata 20, "Falkner"
         level 50
         pokemon SPECIES_ETERNATUS
         item ITEM_ROCK_MEMORY
-        move MOVE_ETERNABEAM
+        move MOVE_SPLASH
         move MOVE_NONE
         move MOVE_NONE
         move MOVE_NONE
