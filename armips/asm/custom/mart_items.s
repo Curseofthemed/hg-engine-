@@ -17,26 +17,26 @@ EIGHT_BADGES equ 6
 /* General Poké Mart Table */
 .org 0x020FBF22
 
-.halfword ITEM_VENUSAURITE
+.halfword ITEM_WISHING_PIECE
 .halfword ZERO_BADGES
 
-.halfword ITEM_N_SOLARIZER
-.halfword ONE_BADGE
-
-.halfword ITEM_ULTRA_BALL
-.halfword THREE_BADGES
-
-.halfword ITEM_LIGHT_STONE
+.halfword ITEM_TERA_CRYSTAL
 .halfword ZERO_BADGES
 
-.halfword ITEM_LIGHT_STONE
-.halfword ONE_BADGE
+.halfword ITEM_ULTRANECROZIUM_Z
+.halfword ZERO_BADGES
 
-.halfword ITEM_HYPER_POTION
-.halfword THREE_BADGES
+.halfword ITEM_GREY_STONE
+.halfword ZERO_BADGES
 
-.halfword ITEM_MAX_POTION
-.halfword SEVEN_BADGES
+.halfword ITEM_WELLSPRING_MASK
+.halfword ZERO_BADGES
+
+.halfword ITEM_HEARTHFLAME_MASK
+.halfword ZERO_BADGES
+
+.halfword ITEM_CORNERSTONE_MASK
+.halfword ZERO_BADGES
 
 .halfword ITEM_FULL_RESTORE
 .halfword EIGHT_BADGES

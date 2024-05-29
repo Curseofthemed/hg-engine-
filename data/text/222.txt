@@ -535,14 +535,14 @@ Lock Capsule
 Red Orb
 Blue Orb
 Enigma Stone
-All Mega Stone
-Wishing Piece
-Tera Crystal 
-Ultranecrozium Z
-Grey Stone
-Wellspring Mask
-Hearthflame Mask
-Cornerstone Mask
+Venusaurite
+Charizardite X
+Charizardite Y
+Blastoisite
+Beedrillite
+Pidgeotite
+Alakazite
+Slowbronite
 Gengarite
 Kangaskhite
 Pinsirite
@@ -790,3 +790,10 @@ Hasty Mint
 Jolly Mint
 Naive Mint
 Serious Mint
+Wishing Piece
+Tera Crystal 
+Ultranecrozium Z
+Grey Stone
+Wellspring Mask
+Hearthflame Mask
+Cornerstone Mask

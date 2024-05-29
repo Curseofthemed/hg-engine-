@@ -27862,3 +27862,20 @@ mondata SPECIES_MEGA_HAXORUS, "Haxorus"
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
+
+
+mondata SPECIES_CHARIZARD_GMAX, "-----"
+    basestats 78, 126, 117, 100, 164, 128
+    types TYPE_FIRE, TYPE_FLYING
+    catchrate 45
+    baseexp 0 // defined in baseexp.s
+    evyields 0, 0, 0, 0, 3, 0
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
+    abilities ABILITY_BLAZE, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_RED, 0

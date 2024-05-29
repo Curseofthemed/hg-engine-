@@ -1402,3 +1402,4 @@ heightentry SPECIES_URSALUNA_BLOODMOON, 3, 3, 0, 0
 heightentry SPECIES_ETERNATUS_BATTLE, 0, 0, 0, 0
 heightentry SPECIES_MEGA_GOODRA, 0, 0, 0, 0
 heightentry SPECIES_MEGA_HAXORUS, 0, 0, 0, 0
+heightentry SPECIES_CHARIZARD_GMAX, 1, 1, 0, 0

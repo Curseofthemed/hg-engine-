@@ -18,7 +18,7 @@
 #include "../include/constants/weather_numbers.h"
 
 
-#define NELEMS_POKEFORMDATATBL 309
+#define NELEMS_POKEFORMDATATBL 310
 
 extern u32 word_to_store_form_at;
 
@@ -607,9 +607,9 @@ u32 LONG_CALL Getogerponform(u16 item)
 {
     switch (item)
     {
-        case ITEM_PIDGEOTITE: return 1;
-        case ITEM_ALAKAZITE: return 2;
-        case ITEM_SLOWBRONITE: return 3;
+        case ITEM_WELLSPRING_MASK: return 1;
+        case ITEM_HEARTHFLAME_MASK: return 2;
+        case ITEM_CORNERSTONE_MASK: return 3;
     }
     return 0;
 }

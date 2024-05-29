@@ -1872,4 +1872,10 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .need_rev = 1,
         .file = SPECIES_MEGA_HAXORUS,
     },
+    {
+        .species = SPECIES_CHARIZARD,
+        .form_no = 3,
+        .need_rev = 1,
+        .file = SPECIES_CHARIZARD_GMAX,
+    },
 };

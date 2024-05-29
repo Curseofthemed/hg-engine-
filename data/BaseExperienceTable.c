@@ -1322,4 +1322,5 @@ const u16 UNUSED BaseExperienceTable[] =
     [SPECIES_SHADOW_MEWTWO               ] = 340,
     [SPECIES_MEGA_GOODRA                 ] = 300,
     [SPECIES_MEGA_HAXORUS                ] = 270,
+    [SPECIES_CHARIZARD_GMAX              ] = 267,
 };

@@ -2203,14 +2203,14 @@ BOOL LONG_CALL CanKyuremPrimalReversion(struct BattleStruct *sp, u8 client_no) {
 #ifdef DEBUG_PRIMAL_REVERSION
           && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
 #else
-          && GetBattleMonItem(sp, client_no) == ITEM_VENUSAURITE
+          && GetBattleMonItem(sp, client_no) == ITEM_GREY_STONE
 #endif
           ) ||
          (sp->battlemon[client_no].species == SPECIES_KYUREM
 #ifdef DEBUG_PRIMAL_REVERSION
           && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
 #else
-          && GetBattleMonItem(sp, client_no) == ITEM_VENUSAURITE
+          && GetBattleMonItem(sp, client_no) == ITEM_GREY_STONE
 #endif          
           )) &&
         sp->battlemon[client_no].hp != 0 && sp->battlemon[client_no].form_no == 0) {
@@ -2232,14 +2232,14 @@ BOOL LONG_CALL CanKyuremwPrimalReversion(struct BattleStruct *sp, u8 client_no) 
 #ifdef DEBUG_PRIMAL_REVERSION
           && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
 #else
-          && GetBattleMonItem(sp, client_no) == ITEM_VENUSAURITE
+          && GetBattleMonItem(sp, client_no) == ITEM_GREY_STONE
 #endif
           ) ||
          (sp->battlemon[client_no].species == SPECIES_KYUREM
 #ifdef DEBUG_PRIMAL_REVERSION
           && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
 #else
-          && GetBattleMonItem(sp, client_no) == ITEM_VENUSAURITE
+          && GetBattleMonItem(sp, client_no) == ITEM_GREY_STONE
 #endif          
           )) &&
         sp->battlemon[client_no].hp != 0 && sp->battlemon[client_no].form_no == 1) {
@@ -2261,14 +2261,14 @@ BOOL LONG_CALL CanKyurembPrimalReversion(struct BattleStruct *sp, u8 client_no) 
 #ifdef DEBUG_PRIMAL_REVERSION
           && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
 #else
-          && GetBattleMonItem(sp, client_no) == ITEM_VENUSAURITE
+          && GetBattleMonItem(sp, client_no) == ITEM_GREY_STONE
 #endif
           ) ||
          (sp->battlemon[client_no].species == SPECIES_KYUREM
 #ifdef DEBUG_PRIMAL_REVERSION
           && GetBattleMonItem(sp, client_no) == ITEM_DREAM_BALL
 #else
-          && GetBattleMonItem(sp, client_no) == ITEM_VENUSAURITE
+          && GetBattleMonItem(sp, client_no) == ITEM_GREY_STONE
 #endif          
           )) &&
         sp->battlemon[client_no].hp != 0 && sp->battlemon[client_no].form_no == 2) {

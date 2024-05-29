@@ -33,7 +33,7 @@ const struct MegaStruct sMegaTable[] =
     },
     {
         .monindex = SPECIES_CHARIZARD,
-        .itemindex = ITEM_CHARIZARDITE_X,
+        .itemindex = ITEM_VENUSAURITE,
         .form = 1,
     }, // x
     {
@@ -273,13 +273,18 @@ const struct MegaStruct sMegaTable[] =
     },
     {
         .monindex = SPECIES_VENUSAUR,
-        .itemindex = ITEM_CHARIZARDITE_X,
+        .itemindex = ITEM_WISHING_PIECE,
         .form = 2,
     },
     {
         .monindex = SPECIES_ENTEI,
         .itemindex = ITEM_VENUSAURITE,
         .form = 1,
+    },
+    {
+        .monindex = SPECIES_CHARIZARD,
+        .itemindex = ITEM_WISHING_PIECE,
+        .form = 3,
     },
 };
 

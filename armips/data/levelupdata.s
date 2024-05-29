@@ -27743,3 +27743,31 @@ levelup SPECIES_HAXORUS
     learnset MOVE_GUILLOTINE, 55
     learnset MOVE_GIGA_IMPACT, 66
     terminatelearnset
+
+levelup SPECIES_CHARIZARD_GMAX
+    learnset MOVE_AIR_SLASH, 0
+    learnset MOVE_WING_ATTACK, 0
+    learnset MOVE_AIR_SLASH, 1
+    learnset MOVE_DRAGON_CLAW, 1
+    learnset MOVE_HEAT_WAVE, 1
+    learnset MOVE_SCRATCH, 1
+    learnset MOVE_GROWL, 1
+    learnset MOVE_EMBER, 1
+    learnset MOVE_SMOKESCREEN, 1
+    learnset MOVE_WING_ATTACK, 1
+    learnset MOVE_FLARE_BLITZ, 1
+    learnset MOVE_SHADOW_CLAW, 1
+    learnset MOVE_EMBER, 7
+    learnset MOVE_SMOKESCREEN, 10
+    learnset MOVE_DRAGON_BREATH, 12
+    learnset MOVE_DRAGON_RAGE, 17
+    learnset MOVE_FIRE_FANG, 23
+    learnset MOVE_SCARY_FACE, 30
+    learnset MOVE_SLASH, 31
+    learnset MOVE_FLAME_BURST, 32
+    learnset MOVE_FLAMETHROWER, 37
+    learnset MOVE_FIRE_SPIN, 50
+    learnset MOVE_INFERNO, 57
+    learnset MOVE_FLARE_BLITZ, 69
+    learnset MOVE_HEAT_WAVE, 71
+    terminatelearnset
