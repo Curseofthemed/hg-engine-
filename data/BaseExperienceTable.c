@@ -1323,4 +1323,7 @@ const u16 UNUSED BaseExperienceTable[] =
     [SPECIES_MEGA_GOODRA                 ] = 300,
     [SPECIES_MEGA_HAXORUS                ] = 270,
     [SPECIES_CHARIZARD_GMAX              ] = 267,
+    [SPECIES_BLASTOISE_GMAX              ] = 265,
+    [SPECIES_BUTTERFREE_GMAX             ] = 198,
+    [SPECIES_PIKACHU_GMAX                ] = 112,
 };

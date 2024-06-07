@@ -27879,3 +27879,51 @@ mondata SPECIES_CHARIZARD_GMAX, "-----"
     abilities ABILITY_BLAZE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
+
+mondata SPECIES_BLASTOISE_GMAX, "-----"
+    basestats 79, 125, 150, 78, 128, 158
+    types TYPE_WATER, TYPE_WATER
+    catchrate 45
+    baseexp 0 // defined in baseexp.s
+    evyields 0, 0, 0, 0, 0, 3
+    items ITEM_NONE, ITEM_NONE
+    genderratio 31
+    eggcycles 20
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_SLOW
+    egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
+    abilities ABILITY_TORRENT, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_BLUE, 0
+
+mondata SPECIES_BUTTERFREE_GMAX, "-----"
+    basestats 60, 68, 75, 70, 135, 120
+    types TYPE_BUG, TYPE_FLYING
+    catchrate 45
+    baseexp 0 // defined in baseexp.s
+    evyields 0, 0, 0, 0, 2, 1
+    items ITEM_NONE, ITEM_SILVER_POWDER
+    genderratio 127
+    eggcycles 15
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
+    abilities ABILITY_COMPOUND_EYES, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_WHITE, 0
+
+mondata SPECIES_PIKACHU_GMAX, "-----"
+    basestats 35, 83, 60, 90, 75, 75
+    types TYPE_ELECTRIC, TYPE_ELECTRIC
+    catchrate 190
+    baseexp 0 // defined in baseexp.s
+    evyields 0, 0, 0, 2, 0, 0
+    items ITEM_ORAN_BERRY, ITEM_LIGHT_BALL
+    genderratio 127
+    eggcycles 10
+    basefriendship 50
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
+    abilities ABILITY_STATIC, ABILITY_NONE
+    runchance 0
+    colorflip BODY_COLOR_YELLOW, 0

@@ -15,7 +15,7 @@ const u16 UNUSED HiddenAbilityTable[] =
     [SPECIES_CHARIZARD                   ] = ABILITY_SOLAR_POWER,
     [SPECIES_SQUIRTLE                    ] = ABILITY_RAIN_DISH,
     [SPECIES_WARTORTLE                   ] = ABILITY_RAIN_DISH,
-    [SPECIES_BLASTOISE                   ] = ABILITY_RAIN_DISH,
+    [SPECIES_BLASTOISE                  ] = ABILITY_RAIN_DISH,
     [SPECIES_CATERPIE                    ] = ABILITY_RUN_AWAY,
     [SPECIES_METAPOD                     ] = ABILITY_SHED_SKIN,
     [SPECIES_BUTTERFREE                  ] = ABILITY_TINTED_LENS,
@@ -1323,4 +1323,7 @@ const u16 UNUSED HiddenAbilityTable[] =
     [SPECIES_URSALUNA_BLOODMOON          ] = ABILITY_NONE,
     [SPECIES_VENUSAUR_GMAX               ] = ABILITY_CHLOROPHYLL,
     [SPECIES_CHARIZARD_GMAX              ] = ABILITY_SOLAR_POWER,
+    [SPECIES_BLASTOISE_GMAX              ] = ABILITY_RAIN_DISH,
+    [SPECIES_BUTTERFREE_GMAX             ] = ABILITY_TINTED_LENS,
+    [SPECIES_PIKACHU_GMAX                ] = ABILITY_LIGHTNING_ROD,
 };

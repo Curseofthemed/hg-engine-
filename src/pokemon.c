@@ -18,7 +18,7 @@
 #include "../include/constants/weather_numbers.h"
 
 
-#define NELEMS_POKEFORMDATATBL 310
+#define NELEMS_POKEFORMDATATBL 312
 
 extern u32 word_to_store_form_at;
 
@@ -1865,7 +1865,7 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
 }
 
 
-#define CRY_SPECIES_FORMS_BASE (MAX_MON_NUM)
+#define CRY_SPECIES_FORMS_BASE (MAX_MON_NUM-1)
 
 // need to be in order of form so that python script can generate the makefile
 #define CRY_SPECIES_SHAYMIN 0x1EE
@@ -1924,7 +1924,7 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
 #define CRY_SPECIES_BASE_TORNADUS (CRY_SPECIES_FORMS_BASE + 48)
 #define CRY_SPECIES_BASE_THUNDURUS (CRY_SPECIES_FORMS_BASE+1 + 48)
 #define CRY_SPECIES_BASE_LANDORUS (CRY_SPECIES_FORMS_BASE+2 + 48)
-#define CRY_SPECIES_BASE_KYUREM (CRY_SPECIES_FORMS_BASE+3 + 48)
+#define CRY_SPECIES_BASE_KYUREM (CRY_SPECIES_FORMS_BASE+25 + 48)
 #define CRY_SPECIES_BASE_PUMPKABOO (CRY_SPECIES_FORMS_BASE+5 + 48)
 #define CRY_SPECIES_BASE_GOURGEIST (CRY_SPECIES_FORMS_BASE+6 + 48)
 #define CRY_SPECIES_BASE_HOOPA (CRY_SPECIES_FORMS_BASE+7 + 48)

@@ -1071,7 +1071,9 @@ heightentry SPECIES_CHI_YU, 0, 0, 0, 0
 heightentry SPECIES_ROARING_MOON, 0, 0, 0, 0
 heightentry SPECIES_IRON_VALIANT, 0, 0, 0, 0
 heightentry SPECIES_KORAIDON, 3, 3, 0, 0
+heightentry SPECIES_KORAIDON_BATTLE, 3, 3, 0, 0
 heightentry SPECIES_MIRAIDON, 3, 3, 0, 0
+heightentry SPECIES_MIRAIDON_BATTLE, 3, 3, 0, 0
 heightentry SPECIES_WALKING_WAKE, 3, 3, 0, 0
 heightentry SPECIES_IRON_LEAVES, 0, 0, 0, 0
 heightentry SPECIES_DIPPLIN, 3, 3, 0, 0
@@ -1403,3 +1405,6 @@ heightentry SPECIES_ETERNATUS_BATTLE, 0, 0, 0, 0
 heightentry SPECIES_MEGA_GOODRA, 0, 0, 0, 0
 heightentry SPECIES_MEGA_HAXORUS, 0, 0, 0, 0
 heightentry SPECIES_CHARIZARD_GMAX, 1, 1, 0, 0
+heightentry SPECIES_BLASTOISE_GMAX, 9, 9, 8, 8
+heightentry SPECIES_BUTTERFREE_GMAX, 6, 6, 14, 14
+heightentry SPECIES_PIKACHU_GMAX, 5, 5, 14, 14

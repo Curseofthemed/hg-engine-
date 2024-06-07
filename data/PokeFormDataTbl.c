@@ -1878,4 +1878,22 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .need_rev = 1,
         .file = SPECIES_CHARIZARD_GMAX,
     },
+    {
+        .species = SPECIES_BLASTOISE,
+        .form_no = 2,
+        .need_rev = 1,
+        .file = SPECIES_BLASTOISE_GMAX,
+    },
+    {
+        .species = SPECIES_BUTTERFREE,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_BUTTERFREE_GMAX,
+    },
+    {
+        .species = SPECIES_PIKACHU,
+        .form_no = 15,
+        .need_rev = 1,
+        .file = SPECIES_PIKACHU_GMAX,
+    },
 };

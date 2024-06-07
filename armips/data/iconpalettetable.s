@@ -1411,6 +1411,9 @@ gIconPalTable:
 /* SPECIES_MEGA_GOODRA                 */ .byte  0x2
 /* SPECIES_MEGA_HAXORUS                */ .byte  0x2
 /* SPECIES_CHARIZARD_GMAX              */ .byte  0x0
+/* SPECIES_BLASTOISE_GMAX              */ .byte  0x0
+/* SPECIES_BUTTERFREE_GMAX             */ .byte  0x0
+/* SPECIES_PIKACHU_GMAX                */ .byte  0x2
 .endarea
 
 .close

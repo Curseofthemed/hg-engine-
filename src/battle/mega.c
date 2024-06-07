@@ -286,6 +286,21 @@ const struct MegaStruct sMegaTable[] =
         .itemindex = ITEM_WISHING_PIECE,
         .form = 3,
     },
+    {
+        .monindex = SPECIES_BLASTOISE,
+        .itemindex = ITEM_WISHING_PIECE,
+        .form = 2,
+    },
+    {
+        .monindex = SPECIES_BUTTERFREE,
+        .itemindex = ITEM_WISHING_PIECE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_PIKACHU,
+        .itemindex = ITEM_WISHING_PIECE,
+        .form = 15,
+    },
 };
 
 const struct MegaStructMove sMegaMoveTable[] =
