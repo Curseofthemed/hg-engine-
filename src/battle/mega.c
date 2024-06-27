@@ -265,12 +265,15 @@ const struct MegaStruct sMegaTable[] =
         .monindex = SPECIES_DIANCIE,
         .itemindex = ITEM_DIANCITE,
         .form = 1,
-    },
-    {
-        .monindex = SPECIES_TERAPAGOS,
-        .itemindex = ITEM_VENUSAURITE,
-        .form = 2,
-    },
+    },/**
+ *  @brief check if a form change needs to happen.  if so, return TRUE and populate *seq_no with the subscript to run
+ *
+ *  @see BattleFormChange
+ *  @param bw battle work structure; void * because we haven't defined the battle work structure
+ *  @param sp global battle structure
+ *  @param seq_no battle subscript to run
+ *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
+ */
     {
         .monindex = SPECIES_VENUSAUR,
         .itemindex = ITEM_WISHING_PIECE,
@@ -515,7 +518,7 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     for (int i = 0; i < 4; i++)
         moves[i] = GetMonData(pp, MON_DATA_MOVE1+i, NULL);
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
-    if (form_no > 4) // can not draw mega button if form is nonzero.  only base form can mega evolve
+    if (form_no) // can not draw mega button if form is nonzero.  only base form can mega evolve
         return FALSE;
 
     return (CheckMegaData(mon, item) || CheckMegaMoveData(mon, moves));

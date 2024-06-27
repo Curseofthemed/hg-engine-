@@ -1065,7 +1065,7 @@
 /* SPECIES_ROARING_MOON    */ .halfword 0
 /* SPECIES_IRON_VALIANT    */ .halfword 0
 /* SPECIES_KORAIDON        */ .halfword 0
-/* SPECIES_MIRAIDON        */ .halfword 0
+/* SPECIES_MIRAIDON        */ .halfword 257
 /* SPECIES_WALKING_WAKE    */ .halfword 0
 /* SPECIES_IRON_LEAVES     */ .halfword 0
 /* SPECIES_DIPPLIN         */ .halfword 0

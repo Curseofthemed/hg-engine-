@@ -24,6 +24,7 @@
 .include "armips/asm/custom/hidden_power.s"
 .include "armips/asm/custom/hp_bar_speed.s"
 .include "armips/asm/custom/remove_obedience_check.s"
+.include "armips/asm/custom/enable_surf_without_knowing_move"
 
 .if REUSABLE_TMS == 1
 
